@@ -5,7 +5,7 @@
 
 #define MAXLEN 256
 
-int main() 
+int main()
 {
 	char *r = "winnie";
 	char *s;
@@ -32,19 +32,19 @@ int main()
 		printf("r < s (lexicographically)\n");
 	else if (stat == 0)
 		printf("r == s (lexicographically)\n");
-	else 
+	else
 		printf("r > s (lexicographically)\n");
-	
 
 
-	
+
+
 	free(s);
 	s = (char *) malloc(sizeof(char)*MAXLEN);
 	strcpy(s, " tigger pooh abracadabra woo ;; woo & choo choo");
 
 	/* save a copy because strtok will eat it up */
 	save = (char *) malloc(sizeof(char)*(strlen(s)+1));
-	strcpy(save, s); 
+	strcpy(save, s);
 
 	printf("starting to tokenize the string: %s \n", s);
 	/* tokenize the string q */
@@ -72,5 +72,5 @@ int main()
 		token = strsep(&s,  " ;");
 	}
 	exit(0);
-	
-} 
+
+}

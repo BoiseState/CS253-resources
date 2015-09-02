@@ -11,11 +11,12 @@ int main(int argc, char *argv[])
 	/* The parentheses around c = getchar() are required because
 	   the operator != has higher precedence than = operator */
 
-	while ((c = getchar()) != EOF ) {
+	while ((c = getchar()) != EOF )
+	{
 		putchar(c);
-                printf("hello");
+		printf("hello");
 
-        }
+	}
 
 	return 0;
 }

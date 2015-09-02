@@ -22,8 +22,8 @@ int main(int argc, char *argv[])
 
 	// A character can be appended to a string but not more than one
 	// character at a time (other types are not promoted to string type)
-	s1 += 'a'; 
-	s1 += ' '; 
+	s1 += 'a';
+	s1 += ' ';
 	s1 += 'b';
 
 	cout << s1+ " " + s2 << endl;
@@ -39,17 +39,17 @@ int main(int argc, char *argv[])
 	// A dynamically allocated array
 	int *A = new int[COUNT];
 	for (int i=0; i<COUNT; i++)
-		A[i] = i;  
+		A[i] = i;
 
 	delete [] A; //free up the space used by the array
 
 	A = new int[2*COUNT];
 	for (int i=0; i<2*COUNT; i++)
-		A[i] = i;  
+		A[i] = i;
 
 	delete [] A; //free up the space used by the array
 
-	// while loops, do-while loops, if statements, for loops are 
+	// while loops, do-while loops, if statements, for loops are
 	// the same as Java
 	int i=0;
 	while (i < COUNT)
@@ -66,7 +66,7 @@ int main(int argc, char *argv[])
 
 	// read in a bunch of strings until end of input
 	vector<String> *temp = new vector<String>();
-	
+
 	String nextWord;
 
 	cout << "Type in strings and end with Control-d" << endl;
@@ -74,7 +74,7 @@ int main(int argc, char *argv[])
 	while (!cin.eof())
 	{
 		(*temp).insert((*temp).end(), nextWord);
-		// The -> operator is a convenient shorthand for (*temp). 
+		// The -> operator is a convenient shorthand for (*temp).
 		// temp->insert(temp->end(), nextWord);
 		cin >> nextWord;
 		// use getline(cin, nextWord) to read one line at a time
@@ -93,7 +93,7 @@ int main(int argc, char *argv[])
 	String * data = new String[vectorSize];
 	for (int i=0; i<vectorSize; i++)
 		data[i] = (*temp)[i];
-	
+
 	// print out the string
 	cout << "printing the string array" << endl;
 	for (int i=0; i<vectorSize; i++)

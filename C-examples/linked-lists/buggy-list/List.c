@@ -5,9 +5,9 @@
 
 /*
 
-	list.c 
+	list.c
 		Contains functions to manipulate a doubly-linked list.
- 
+
 */
 
 
@@ -51,7 +51,9 @@ void addAtFront(ListPtr list, NodePtr node)
 	{
 		list->head = node;
 		list->tail = node;
-	} else {
+	}
+	else
+	{
 		list->head->prev = node;
 		list->head = node;
 	}
@@ -103,7 +105,8 @@ static void print(NodePtr node)
 	int count = 0;
 	char *buf;
 
-	while (node) {
+	while (node)
+	{
 		buf = toString(node->data);
 		printf(" %s -->", buf);
 		free(buf);
@@ -112,12 +115,12 @@ static void print(NodePtr node)
 		if ((count % 6) == 0)
 			printf("\n");
 	}
-    printf(" NULL \n");
+	printf(" NULL \n");
 }
- 
+
 
 void freeList(ListPtr L)
 {
 }
-		
+
 

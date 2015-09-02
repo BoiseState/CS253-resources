@@ -10,10 +10,13 @@
 struct node *addAtFront(struct node *head, struct node *node)
 {
 	if (node == NULL) return head;
-	if (head == NULL) {
+	if (head == NULL)
+	{
 		head = node;
 		node->next = NULL;
-	} else {
+	}
+	else
+	{
 		node->next = head;
 		head = node;
 	}
@@ -24,7 +27,8 @@ struct node *addAtFront(struct node *head, struct node *node)
 struct node* reverseList(struct node *head)
 {
 	struct node *list = NULL;
-	while (head) {
+	while (head)
+	{
 		struct node *tmp = head;
 		head = head->next;
 		tmp->next = list;
@@ -36,7 +40,8 @@ struct node* reverseList(struct node *head)
 
 void printList(struct node *head)
 {
-	while (head) {
+	while (head)
+	{
 		printf(" %d -->",head->item);
 		head = head->next;
 	}

@@ -23,28 +23,31 @@ int main(int argc, char *argv[])
 
 	/*signal(SIGINT, SIG_IGN);*/
 	progname = argv[0];
-	if (argc > 1 && argv[1][0] == '-') {
+	if (argc > 1 && argv[1][0] == '-')
+	{
 		sec = atoi(&argv[1][1]);
 		argc--;
 		argv++;
 	}
 
-	if (argc < 2) {
+	if (argc < 2)
+	{
 		error("Usage: %s [-10] command", progname);
 	}
 
 	signal(SIGALRM, onalarm);
 	alarm(sec);
-	if ((pid=fork()) == 0) {
+	if ((pid=fork()) == 0)
+	{
 		execvp(argv[1], &argv[1]);
 		error("couldn't start %s", argv[1]);
 	}
 	if ((wait(&status) == -1) || WIFSIGNALED(status))
-        {
-                int signo = WTERMSIG(status);
+	{
+		int signo = WTERMSIG(status);
 
 		printf("%s %s", argv[1], strsignal(signo));
-        }
+	}
 	exit(WEXITSTATUS(status));
 }
 

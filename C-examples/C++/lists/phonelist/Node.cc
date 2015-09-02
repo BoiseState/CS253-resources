@@ -5,35 +5,35 @@
 
 	Implementation of the Node class.
 */
-		
- Node::Node(PhoneRecord *obj)
+
+Node::Node(PhoneRecord *obj)
 {
 	data = obj;
 	next = NULL; // defined to be the value 0
 }
 
- void Node::setData(PhoneRecord *obj)
+void Node::setData(PhoneRecord *obj)
 {
 	data = obj;
 }
 
- PhoneRecord *Node::getData()
+PhoneRecord *Node::getData()
 {
 	return data;
 }
 
- string Node::toString()
+string Node::toString()
 {
 	return  data->toString();
 }
 
- void Node::setNext(Node *nextPtr)
+void Node::setNext(Node *nextPtr)
 {
 	next = nextPtr;
 }
 
- Node *Node::getNext()
+Node *Node::getNext()
 {
 	return next;
 }
-		
+

@@ -23,12 +23,12 @@ char *toString(const void *obj)
 	struct object* myobj = (struct object*) obj;
 
 	// calculate and allocate enough space for the output string.
-        int max_data_len = strlen(myobj->data)+1;
+	int max_data_len = strlen(myobj->data)+1;
 	max_data_len += MAX_KEY_DIGITS;
-        max_data_len += 3; // include [] and space
+	max_data_len += 3; // include [] and space
 	char *temp = (char *) malloc(sizeof(char) * max_data_len);
 
-        //print into our buffer safely
+	//print into our buffer safely
 	snprintf(temp, max_data_len, "[%d] %s", myobj->key, myobj->data);
 	return temp;
 }

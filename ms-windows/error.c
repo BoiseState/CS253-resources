@@ -95,20 +95,21 @@ static void err_doit(const char *fmt, va_list ap)
 	// Format the error message from the last failed call (if errorCode != 0)
 	// (returns # of TCHARS in message -- 0 if failed)
 	dwErrorCode = GetLastError();
-	
-	if (dwErrorCode != 0) {
-		if ( FormatMessage( 
-					FORMAT_MESSAGE_ALLOCATE_BUFFER |					// source and processing options
-					FORMAT_MESSAGE_FROM_SYSTEM |		
-					FORMAT_MESSAGE_IGNORE_INSERTS,	
-					NULL,														// message source
-					dwErrorCode,											// message identifier
-					MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT),	// language identifier (Default language)
-					(LPTSTR) &lpMsgBuf,									// message buffer
-					0,															// maximum size of message buffer (ignored with FORMAT_MESSAGE_ALLOCATE_BUFFER set)
-					NULL														// array of message inserts
-				)
-		) 
+
+	if (dwErrorCode != 0)
+	{
+		if ( FormatMessage(
+		            FORMAT_MESSAGE_ALLOCATE_BUFFER |					// source and processing options
+		            FORMAT_MESSAGE_FROM_SYSTEM |
+		            FORMAT_MESSAGE_IGNORE_INSERTS,
+		            NULL,														// message source
+		            dwErrorCode,											// message identifier
+		            MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT),	// language identifier (Default language)
+		            (LPTSTR) &lpMsgBuf,									// message buffer
+		            0,															// maximum size of message buffer (ignored with FORMAT_MESSAGE_ALLOCATE_BUFFER set)
+		            NULL														// array of message inserts
+		        )
+		   )
 		{
 			// Display the formatted string.
 			fprintf(stderr, "Err #%d: %s", dwErrorCode, (LPSTR)lpMsgBuf );
@@ -116,10 +117,10 @@ static void err_doit(const char *fmt, va_list ap)
 			LocalFree( lpMsgBuf );
 		}
 	}
-	
+
 	// Reset the error state
 	SetLastError(0);
-	
+
 	fflush(NULL);		/* flushes all stdio output streams */
 	return;
 }

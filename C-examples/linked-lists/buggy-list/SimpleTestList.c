@@ -9,16 +9,17 @@
 
 
 int main(int argc, char **argv)
-{	
+{
 	int i;
 	int n;
 	NodePtr node;
 	JobPtr job;
 	ListPtr list;
 
-	if (argc != 2) {
-			fprintf(stderr, "Usage: %s <list size> \n",argv[0]);
-			exit(1);
+	if (argc != 2)
+	{
+		fprintf(stderr, "Usage: %s <list size> \n",argv[0]);
+		exit(1);
 	}
 	n = atoi(argv[1]);
 

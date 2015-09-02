@@ -25,13 +25,13 @@ int main(int argc, char **argv)
 
 	s = (char *) malloc(sizeof(char) * MAX_LENGTH);
 	strcpy(s, " tigger pooh abracadabra woo ;; woo & choo choo");
-    // (strcpy is okay here because we know that our src string is less than
-    // MAX_LENGTH. However, if we didn't know the length of our src string
-    // ahead of time, we would want to use strncpy.)
+	// (strcpy is okay here because we know that our src string is less than
+	// MAX_LENGTH. However, if we didn't know the length of our src string
+	// ahead of time, we would want to use strncpy.)
 
 	/* save a copy because strtok will eat it up */
 	save = (char *) malloc(sizeof(char)*(strlen(s)+1));
-	strcpy(save, s); 
+	strcpy(save, s);
 
 	token = (char **) malloc (sizeof(char *) * MAX_TOKENS);
 	/* tokenize the string s */

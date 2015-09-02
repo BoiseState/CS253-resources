@@ -34,24 +34,24 @@ void printArray(int *a, int n)
 
 
 int main(int argc, char *argv[])
-{  
-  	if (argc == 1)
-  	{
+{
+	if (argc == 1)
+	{
 		cerr << "Usage: java MergeSortTime <n> \n";
 		exit(1);
-  	}
-  	int n = atoi(argv[1]);
+	}
+	int n = atoi(argv[1]);
 
-   	// construct random array
-   	int* a = randomIntArray(n, 100);
-      
+	// construct random array
+	int* a = randomIntArray(n, 100);
+
 	/*printArray(a, n);*/
 
 	long startTime = getCurrentTimeMillis();
-   	MergeSort::sort(a, n);
+	MergeSort::sort(a, n);
 	long totalTime = getCurrentTimeMillis() - startTime;
 
-   	cout << "Elapsed time: " << totalTime/1000.0 << " seconds" << endl;
+	cout << "Elapsed time: " << totalTime/1000.0 << " seconds" << endl;
 
 	/*printArray(a, n);*/
 }//main

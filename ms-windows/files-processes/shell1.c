@@ -1,5 +1,5 @@
-/* 
- * This program needs the file error.c and to compile. 
+/*
+ * This program needs the file error.c and to compile.
  *
  */
 #include	<sys/types.h>
@@ -21,22 +21,23 @@ int main(void)
 	ZeroMemory( &pi, sizeof(pi) );
 
 	printf("%% ");	/* print prompt (printf requires %% to print %) */
-	while (fgets(szBuff, MAXLINE, stdin) != NULL) {
+	while (fgets(szBuff, MAXLINE, stdin) != NULL)
+	{
 		szBuff[strlen(szBuff) - 1] = 0;	/* replace newline with null */
 
 		/* Start the child process */
-		if ( ! CreateProcess( 
-			NULL,  // No module name (use command line)
-			szBuff,  // Command line
-			NULL,  // Process handle not inheritable
-			NULL,  // Thread handle not inheritable. 
-			FALSE,  // Set handle inheritance to FALSE. 
-			0,  // No creation flags. 
-			NULL,  // Use parent's environment block. 
-			NULL,  // Use parent's starting directory. 
-			&si,  // Pointer to STARTUPINFO structure.
-			&pi )  // Pointer to PROCESS_INFORMATION struct
-		)
+		if ( ! CreateProcess(
+		            NULL,  // No module name (use command line)
+		            szBuff,  // Command line
+		            NULL,  // Process handle not inheritable
+		            NULL,  // Thread handle not inheritable.
+		            FALSE,  // Set handle inheritance to FALSE.
+		            0,  // No creation flags.
+		            NULL,  // Use parent's environment block.
+		            NULL,  // Use parent's starting directory.
+		            &si,  // Pointer to STARTUPINFO structure.
+		            &pi )  // Pointer to PROCESS_INFORMATION struct
+		   )
 		{
 			err_ret( "CreateProcess failed." );
 		}

@@ -32,7 +32,7 @@ int main(int argc, char **argv)
 	C = (int *) malloc(sizeof(int)*n); // C points to an array of n int's
 	for (i =0; i<n; i++)
 		C[i] = 1;  /* equivalent to *(C+i) */
-	
+
 	// swap B and C
 	tmp = B;
 	B = C;

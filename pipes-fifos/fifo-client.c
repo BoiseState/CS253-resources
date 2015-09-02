@@ -13,22 +13,25 @@ int main(void)
 	reply = (char *) malloc (sizeof(char)*PIPE_BUF); // PIPE_BUF defined in limits.h
 
 	fifo1 = open("fifo-request", O_WRONLY);
-	if (fifo1 < 0) {
+	if (fifo1 < 0)
+	{
 		perror("fifo-client: cannot open fifo-request");
 		fprintf(stderr, "fifo-client: is the fifo-server running?\n");
 		exit(EXIT_FAILURE);
 	}
 	fifo2 = open("fifo-reply", O_RDONLY);
-	if (fifo2 < 0) {
+	if (fifo2 < 0)
+	{
 		perror("fifo-client: cannot open fifo-reply");
 		fprintf(stderr, "fifo-client: is the fifo-server running?\n");
 		exit(EXIT_FAILURE);
 	}
 
 	count = 0;
-	for (;;) {
+	for (;;)
+	{
 		randvalue = random() % 4;
-		if (randvalue == 0) 
+		if (randvalue == 0)
 			strcpy(request, "I need some money!");
 		else
 			strcpy(request, "Hello parent!");

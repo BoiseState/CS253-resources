@@ -6,7 +6,7 @@ JobPtr createJob(int jobid, char *info)
 	JobPtr newJob = (JobPtr) malloc (sizeof(Job));
 	newJob->jobid = jobid;
 	newJob->info = (char *) malloc(sizeof(char)*(strlen(info)+1));
-	strcpy(newJob->info, info); 
+	strcpy(newJob->info, info);
 	return newJob;
 }
 

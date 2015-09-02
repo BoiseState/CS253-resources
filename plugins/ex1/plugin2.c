@@ -13,6 +13,6 @@
 
 void plugin(void)
 {
-  printf("This is the second plug-in\n");
+	printf("This is the second plug-in\n");
 }
 

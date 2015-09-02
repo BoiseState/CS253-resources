@@ -11,7 +11,7 @@ int main(int argc, char **argv)
 {
 	int z1 = 15;
 
-	int *y = new int; 
+	int *y = new int;
 	*y = z1;
 	printf("y = %d\n",*y);
 
@@ -25,7 +25,7 @@ int main(int argc, char **argv)
 
 
 	int **x = new int*;
-	*x = new int; 
+	*x = new int;
 	**x = 5;
 	printf("&x = %p  x = %p *x = %p  **x = %d \n",&x, x, *x, **x);
 

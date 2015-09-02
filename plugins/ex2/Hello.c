@@ -2,12 +2,12 @@
 
 void message1()
 {
-  printf("Hello ");
+	printf("Hello ");
 }
 
 void message2()
 {
-  printf("World!\n");
+	printf("World!\n");
 }
 
 

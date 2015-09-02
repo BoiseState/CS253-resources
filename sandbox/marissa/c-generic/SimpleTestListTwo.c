@@ -1,8 +1,8 @@
 #include "List.h"
 #include "Dog.h" // We want to include the dog header in the test
-                    // file, NOT Node.h as we had in our previous version.
-		    // We want to completely decouple our dog from our
-		    // list implementation.
+// file, NOT Node.h as we had in our previous version.
+// We want to completely decouple our dog from our
+// list implementation.
 
 int main(int argc, char *argv[])
 {
@@ -12,7 +12,8 @@ int main(int argc, char *argv[])
 
 	// Add nodes to the list.
 	int i;
-	for(i = 0; i < 10; i++) {
+	for(i = 0; i < 10; i++)
+	{
 		struct dog *dog = createDog(i, "fido");
 		node = createNode(dog);
 		addAtFront(list, node); //modify to add node instead.
@@ -22,7 +23,7 @@ int main(int argc, char *argv[])
 
 	/* struct node *remove = removeFront(list); */
 	/* remove->next->next = NULL; */
-        /*  */
+	/*  */
 	/* printList(list); */
 
 	freeList(list);

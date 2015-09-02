@@ -29,9 +29,12 @@ void printTestInfo(char* testName, char *info)
 
 void printTestResult(char* testName, int passed)
 {
-	if(passed){
+	if(passed)
+	{
 		fprintf(stdout, "%s - %s\n\n", "[PASSED]", testName);
-	}else{
+	}
+	else
+	{
 		fprintf(stdout, "%s - %s\n\n", "[FAILED]", testName);
 	}
 }

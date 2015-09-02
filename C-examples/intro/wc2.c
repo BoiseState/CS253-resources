@@ -8,15 +8,15 @@
 int main(int argc, char *argv[])
 {
 	int c;
-   	long nl;	
+	long nl;
 
 	nl = 0;
 	while ((c = getchar()) != EOF )
-    {
+	{
 		if (c == '\n')
-        {
-            nl++;
-        }
+		{
+			nl++;
+		}
 	}
 	printf("%ld\n", nl);
 	return 0;

@@ -13,31 +13,39 @@ void printUsage(char[]);
 
 int main(int argc, char *argv[])
 {
-	if(argc < 5) {
+	if(argc < 5)
+	{
 		printUsage(argv[0]);
 	}
 
 	// Parse int argument
 	unsigned int x = 0;
-	if(strcmp(argv[1],"-i") == 0) {
+	if(strcmp(argv[1],"-i") == 0)
+	{
 		int temp = atoi(argv[2]);
-		if (temp > UINT_MAX || temp < 0) {
+		if (temp > UINT_MAX || temp < 0)
+		{
 			printf("error: integer (%d) must be between %u and %u\n\n",
 			       temp, 0, UINT_MAX);
 			printUsage(argv[0]);
 		}
 		// only keep the value if it is in valid range
 		x = (unsigned int) temp;
-	} else {
+	}
+	else
+	{
 		printf("error: -i expected\n");
 		printUsage(argv[0]);
 	}
 
 	// Parse string argument
 	char *string; // This is like a String Object reference in Java
-	if(strcmp(argv[3], "-s") == 0) {
+	if(strcmp(argv[3], "-s") == 0)
+	{
 		string = argv[4];
-	} else {
+	}
+	else
+	{
 		printf("error: -s expected\n");
 		printUsage(argv[0]);
 	}
@@ -47,7 +55,8 @@ int main(int argc, char *argv[])
 
 	int i;
 	int len = (int) strlen(string);
-	for(i = 0; i < len; i++) {
+	for(i = 0; i < len; i++)
+	{
 		printf("%d: %c\n", i, string[i]);
 	}
 

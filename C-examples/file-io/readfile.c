@@ -6,26 +6,26 @@
 
 int main(int argc, char **argv)
 {
-    if(argc != 2)
-    {
-        printf("Usage: %s <filepath>\n", argv[0]);
-        exit(1);
-    }
+	if(argc != 2)
+	{
+		printf("Usage: %s <filepath>\n", argv[0]);
+		exit(1);
+	}
 
-    FILE *fin = fopen(argv[1], "r");
-    if(!fin)
-    {
-        perror(argv[1]);
-        exit(errno);
-    }
+	FILE *fin = fopen(argv[1], "r");
+	if(!fin)
+	{
+		perror(argv[1]);
+		exit(errno);
+	}
 
-    char buffer[MAX_LINE_LENGTH];
-   
-    while(fgets(buffer, sizeof(buffer), fin))
-    {
-        printf("%s", buffer);
-    }
+	char buffer[MAX_LINE_LENGTH];
 
-    fclose(fin);
-    return 0;
+	while(fgets(buffer, sizeof(buffer), fin))
+	{
+		printf("%s", buffer);
+	}
+
+	fclose(fin);
+	return 0;
 }

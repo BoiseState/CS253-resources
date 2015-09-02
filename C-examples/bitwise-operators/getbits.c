@@ -9,18 +9,21 @@ int main(int argc, char *argv[])
 {
 	unsigned int x, n, p, result;
 
-	if (argc != 4) {
+	if (argc != 4)
+	{
 		fprintf(stderr, "Usage: %s <x> <position> <field-width>\n", argv[0]);
 		return 1;
-	} else {
+	}
+	else
+	{
 		x = (unsigned int) atoi(argv[1]);
 		p = (unsigned int) atoi(argv[2]);
 		n = (unsigned int) atoi(argv[3]);
 	}
 
-    result = getbits(x, p, n);
-    printf("x = %d 0x%X result: %d 0x%X\n", x, x, result, result);
-    return 0;
+	result = getbits(x, p, n);
+	printf("x = %d 0x%X result: %d 0x%X\n", x, x, result, result);
+	return 0;
 }
 
 /*
@@ -38,7 +41,7 @@ int main(int argc, char *argv[])
  */
 unsigned int getbits(unsigned int x, unsigned int p, unsigned int n)
 {
-    return (x >> (p+1-n)) & ~(~0U << n);
+	return (x >> (p+1-n)) & ~(~0U << n);
 }
 
 /*

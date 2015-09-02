@@ -32,8 +32,10 @@ int main(int argc, char **argv)
 	C = (int *) malloc(sizeof(int)*100); // C points to an array of n int's
 	for (i =0; i<100; i++)
 		C[i] = 1;
-	
-	tmp = B; B = C; C = tmp; // swap B and C
+
+	tmp = B;
+	B = C;
+	C = tmp; // swap B and C
 
 	// delete the arrays that B and C point to
 	free(B);
@@ -52,7 +54,7 @@ int main(int argc, char **argv)
 
 	// print out the 2-dimensional array
 	for (i=0; i<n; i++)
-	{		
+	{
 		for (j=0; j<n; j++)
 			printf(" %d",X[i][j]);
 		printf("\n");
@@ -61,7 +63,7 @@ int main(int argc, char **argv)
 
 	// delete the 2-dimensional array X
 	for (i=0; i<n; i++)
-			free(X[i]);
+		free(X[i]);
 	free(X);
 
 	//create  triangular shaped 2-dimensional array
@@ -76,8 +78,9 @@ int main(int argc, char **argv)
 
 	// print out the triangular array
 	for (i=0; i<n; i++)
-	{		
-		for (j=0; j<=i; j++) {
+	{
+		for (j=0; j<=i; j++)
+		{
 			printf("%3d ",Y[i][j]);
 		}
 		printf("\n");
@@ -85,7 +88,7 @@ int main(int argc, char **argv)
 
 	// delete the 2-dimensional array Y
 	for (i=0; i<n; i++)
-			free(Y[i]);
+		free(Y[i]);
 	free(Y);
 
 	exit(0); // normal termination

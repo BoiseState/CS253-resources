@@ -22,7 +22,7 @@ char *toString(const void *obj)
 
 void freeObject(void *obj)
 {
-    free(obj);
+	free(obj);
 }
 
 int main(int argc, char **argv)
@@ -34,7 +34,8 @@ int main(int argc, char **argv)
 
 	n=1000;
 	list = createList(equals, toString, freeObject);
-	for (i=0; i<n; i++) {
+	for (i=0; i<n; i++)
+	{
 		object = (int *) malloc(sizeof(int));
 		*object = i;
 		node = createNode(object);

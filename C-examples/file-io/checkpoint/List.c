@@ -5,9 +5,9 @@
 
 /*
 
-	list.c 
+	list.c
 		Contains functions to manipulate a doubly-linked list.
- 
+
 */
 
 
@@ -51,7 +51,9 @@ void addAtFront(ListPtr list, NodePtr node)
 	{
 		list->head = node;
 		list->tail = node;
-	} else {
+	}
+	else
+	{
 		list->head->prev = node;
 		list->head = node;
 	}
@@ -99,20 +101,21 @@ static void print(NodePtr node)
 {
 	char *output;
 
-	while (node) {
+	while (node)
+	{
 		output = toString(node->data);
 		printf("%s\n",output);
 		free(output);
 		node = node->next;
 	}
-    printf("NULL\n");
+	printf("NULL\n");
 }
- 
+
 
 void freeList(ListPtr L)
 {
 }
-		
+
 
 /**
 	Checkpoint the whole list to disk so we can restore it later.
@@ -136,7 +139,8 @@ Boolean checkpointList(ListPtr list, char *saveFile)
 	if (strlen(saveFile) == 0) return FALSE;
 
 	fout = fopen(saveFile, "w");
-	if (!fout) {
+	if (!fout)
+	{
 		sprintf(errmsg, "checkpointList: %s",saveFile);
 		perror(errmsg);
 		return FALSE;
@@ -145,7 +149,8 @@ Boolean checkpointList(ListPtr list, char *saveFile)
 	fwrite(&(list->size), sizeof(int), 1, fout);
 
 	node = list->tail;
-	while (node) {
+	while (node)
+	{
 		checkpointNode(node, fout);
 		node = node->prev;
 	}
@@ -175,7 +180,8 @@ ListPtr restoreList(char *saveFile)
 	if (saveFile == NULL) return NULL;
 	if (strlen(saveFile) == 0) return NULL;
 	fin = fopen(saveFile, "r");
-	if (!fin) {
+	if (!fin)
+	{
 		sprintf(errmsg, "restoreList: %s",saveFile);
 		perror(errmsg);
 		return NULL;
@@ -186,7 +192,8 @@ ListPtr restoreList(char *saveFile)
 	printf("restore: list size = %d\n", size);
 	list = createList();
 
-	while (size > 0) {
+	while (size > 0)
+	{
 		node = restoreNode(fin);
 		addAtFront(list, node);
 		size--;

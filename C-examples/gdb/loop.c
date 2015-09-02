@@ -9,8 +9,9 @@ int main()
 	int status;
 	pid_t pid;
 
-	for(;;){
-		sleep(5); 
+	for(;;)
+	{
+		sleep(5);
 		pid=fork();
 		if (pid == 0)
 		{

@@ -6,7 +6,7 @@ using namespace std;
 
 int compare(const void *x, const void *y)
 {
-		return ((*(int *)x) - (*(int *)y));
+	return ((*(int *)x) - (*(int *)y));
 }
 
 int main(int argc, char **argv)

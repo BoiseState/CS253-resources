@@ -6,7 +6,7 @@ JobPtr createJob(int jobid, char *info)
 	JobPtr newJob = (JobPtr) malloc (sizeof(Job));
 	newJob->jobid = jobid;
 	newJob->info = (char *) malloc(sizeof(char)*(strlen(info)+1));
-	strcpy(newJob->info, info); 
+	strcpy(newJob->info, info);
 	newJob->infoSize = strlen(info)+1;
 	return newJob;
 }
@@ -34,7 +34,7 @@ int getJobSize(JobPtr job)
 
 /*
 Function name: checkpointJob
-Description: WARNING! Writes a checkpoint for a Job structure to  an output 
+Description: WARNING! Writes a checkpoint for a Job structure to  an output
 			stream without any checks. The idea is that some higher level
 			class (like List or Node) would call this function after having
 			checked for the file output stream to be set properly. We also
