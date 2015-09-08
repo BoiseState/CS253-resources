@@ -8,7 +8,7 @@ StringTokenizer::StringTokenizer(string inString, string delimiter)
 	this->delimiter = delimiter;
 
 	// create a C-style string from inString
-	// A C-style string is an array of char's followed by a 
+	// A C-style string is an array of char's followed by a
 	// null character (which has code 0)
 	s = new char[inputStr.length() + 1];
 	inputStr.copy(s,string::npos); //npos denotes end of string

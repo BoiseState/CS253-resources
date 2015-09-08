@@ -18,22 +18,29 @@ RecordPtr extBinarySearch(FILE *dataFile, unsigned long int key)
 	high = numRecords(dataFile);
 
 	record = (RecordPtr) malloc(sizeof(Record));
-	while (low <= high) {
+	while (low <= high)
+	{
 		mid = (low+high)/2;
 		pos = mid * sizeof(Record); /* calculate byte offset in the file */
 		fseek(dataFile, pos, SEEK_SET);
 		fread(record, sizeof(Record), 1, dataFile);
-		if (DEBUG >= 2) {
+		if (DEBUG >= 2)
+		{
 			buffer = toString(record);
 			fprintf(stderr, "low = %ld mid = %ld high = %ld\n", low, mid, high);
 			fprintf(stderr, "====>record: %s", buffer);
 			free(buffer);
 		}
-		if (record->key == key) {
+		if (record->key == key)
+		{
 			return record;
-		} else if (record->key < key) {
+		}
+		else if (record->key < key)
+		{
 			low = mid + 1;
-		} else { /* record->key > key */
+		}
+		else     /* record->key > key */
+		{
 			high = mid - 1;
 		}
 	}
@@ -54,11 +61,13 @@ RecordPtr extLinearSearch(FILE *dataFile, unsigned long int key)
 	count = numRecords(dataFile);
 
 	record = (RecordPtr) malloc(sizeof(Record));
-	for (i = 0; i < count; i++) {
+	for (i = 0; i < count; i++)
+	{
 		pos = i * sizeof(Record); /* calculate byte offset in the file */
 		fseek(dataFile, pos, SEEK_SET);
 		fread(record, sizeof(Record), 1, dataFile);
-		if (record->key == key) {
+		if (record->key == key)
+		{
 			return record;
 		}
 	}
@@ -77,7 +86,8 @@ static long int numRecords(FILE *dataFile)
 	count = ftell(dataFile);
 	/* set high to number of records in the file */
 	count = count/sizeof(Record);
-	if (DEBUG >= 2) {
+	if (DEBUG >= 2)
+	{
 		fprintf(stderr, "data file has %ld records\n", count);
 	}
 	return count;

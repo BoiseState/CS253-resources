@@ -16,9 +16,9 @@ int main(void)
 	char *message1 = "Goodbye";
 	char *message2 = "World";
 
-	#if DEBUG
+#if DEBUG
 	printf("\n\nbefore fork\n");
-	#endif
+#endif
 
 	if ((pid = fork()) < 0)
 	{
@@ -27,15 +27,15 @@ int main(void)
 	else if (pid == 0)	/* first child */
 	{
 		print_message_function(message1);
-		#if DEBUG
+#if DEBUG
 		sleep(2);
-		#endif
+#endif
 		exit(EXIT_SUCCESS);
 	}
 
-	#if DEBUG
+#if DEBUG
 	printf("Created child with pid %d\n",pid);
-	#endif
+#endif
 
 	/* parent continues and creates another child */
 	if ((pid = fork()) < 0)
@@ -46,15 +46,15 @@ int main(void)
 	{
 		print_message_function(message2);
 		printf("\n");
-		#if DEBUG
+#if DEBUG
 		sleep(2);
-		#endif
+#endif
 		exit(EXIT_SUCCESS);
 	}
-	#if DEBUG
+#if DEBUG
 	printf("Created child with pid %d\n",pid);
 	sleep(2);
-	#endif
+#endif
 	exit(EXIT_SUCCESS);
 }
 

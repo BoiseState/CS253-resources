@@ -15,9 +15,9 @@ double getMilliseconds();
 /**
  * @brief See function name
  *
- * @param dataFile - The file to search 
+ * @param dataFile - The file to search
  * @param n - The number of searches to conduct
- * @param searchType - The type of search BINARY or LINEAR 
+ * @param searchType - The type of search BINARY or LINEAR
  */
 void conduct_random_searches(FILE *dataFile, long int n, int searchType)
 {
@@ -26,28 +26,35 @@ void conduct_random_searches(FILE *dataFile, long int n, int searchType)
 	Record *record;
 	char *buffer;
 
-	for (i=0; i<n; i++) {
+	for (i=0; i<n; i++)
+	{
 		key = (unsigned long int) random() % MAX_KEY;
-		if (DEBUG >= 1) {
-				printf("\nSearching for key = %ld\n\n", key);
+		if (DEBUG >= 1)
+		{
+			printf("\nSearching for key = %ld\n\n", key);
 		}
-		switch (searchType) {
-			case BINARY: 
-				record = extBinarySearch(dataFile, key);
-				break;
-			case LINEAR:
-				record = extLinearSearch(dataFile, key);
-				break;
+		switch (searchType)
+		{
+		case BINARY:
+			record = extBinarySearch(dataFile, key);
+			break;
+		case LINEAR:
+			record = extLinearSearch(dataFile, key);
+			break;
 		}
 
-		if (DEBUG >= 1) {
-			if (record) {
+		if (DEBUG >= 1)
+		{
+			if (record)
+			{
 				buffer = toString(record);
 				printf("%s\n", buffer);
 				printf("found: record with key %ld\n", key);
 				free(record);
 				free(buffer);
-			} else {
+			}
+			else
+			{
 				printf("not found: record with key %ld\n", key);
 			}
 		}
@@ -55,7 +62,8 @@ void conduct_random_searches(FILE *dataFile, long int n, int searchType)
 }
 
 
-void print_usage(int argc, char **argv) {
+void print_usage(int argc, char **argv)
+{
 	fprintf(stderr, "Usage: %s <data file name> <number of searches> [binary|linear]\n", program);
 	exit(1);
 }
@@ -72,22 +80,26 @@ int main (int argc, char **argv)
 
 	program = argv[0];
 
-	if (argc < 3 || argc > 5) {
+	if (argc < 3 || argc > 5)
+	{
 		print_usage(argc, argv);
 	}
 	n = atoi(argv[2]);
 	dataFile = fopen(argv[1], "r");
-	if (!dataFile) {
+	if (!dataFile)
+	{
 		perror(program);
 		exit(1);
 	}
 	searchType = BINARY;
-	if (argc == 4) {
-		if (argv[3][0] == 'b') 
+	if (argc == 4)
+	{
+		if (argv[3][0] == 'b')
 			searchType = BINARY;
 		else if (argv[3][0] == 'l')
 			searchType = LINEAR;
-		else {
+		else
+		{
 			fprintf(stderr, "Usage: choose correct search type!\n");
 			print_usage(argc, argv);
 		}
@@ -96,8 +108,9 @@ int main (int argc, char **argv)
 	fseek(dataFile, 0, SEEK_END);
 	count = ftell(dataFile);
 	count = count/sizeof(Record);
-	if (DEBUG >= 1) {
-		   fprintf(stderr, "data file has %ld records\n", count);
+	if (DEBUG >= 1)
+	{
+		fprintf(stderr, "data file has %ld records\n", count);
 	}
 
 	startTime = getMilliseconds();

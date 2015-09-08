@@ -27,10 +27,10 @@ int main(void)
 
 	/* parent continues concurrently with child */
 
-	#ifdef DEBUG
+#ifdef DEBUG
 	printf("Created child with pid %d\n",pid);
 	sleep(4);
-	#endif
+#endif
 
 	printf("Shoo away!\n");
 
@@ -44,15 +44,15 @@ int main(void)
 
 void childs_play()
 {
-	#ifdef DEBUG
+#ifdef DEBUG
 	sleep(3);
-	#endif
+#endif
 
 	printf("Hey, I need some money! \n");
 
-	#ifdef DEBUG
+#ifdef DEBUG
 	sleep(1);
-	#endif
+#endif
 }
 
 void err_sys(char *msg)

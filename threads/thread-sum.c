@@ -58,11 +58,14 @@ void *partial_sum(void *ptr)
 	printf("%s ", message);
 
 	sum = 0;
-	if (strcmp(message,"1") == 0)  {
+	if (strcmp(message,"1") == 0)
+	{
 		index = 0;
 		start = 0;
 		end = n/2;
-	} else {
+	}
+	else
+	{
 		index = 1;
 		start = n/2 + 1;
 		end = n - 1;

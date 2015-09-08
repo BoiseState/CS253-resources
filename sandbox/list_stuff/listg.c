@@ -1,24 +1,26 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-struct point {
-    int x;
-    int r;
+struct point
+{
+	int x;
+	int r;
 };
 
 char *toString(void *foo)
 {
-    char *tmp = malloc(6);
-    struct point *p = (struct point *) foo;
-    sprintf(tmp, "(%d,%d)", p->x, p->r);
-    return tmp;
+	char *tmp = malloc(6);
+	struct point *p = (struct point *) foo;
+	sprintf(tmp, "(%d,%d)", p->x, p->r);
+	return tmp;
 }
 
 
-struct node {
-    struct node *next;
-    void *data;
-    char *(*toString) (void *);
+struct node
+{
+	struct node *next;
+	void *data;
+	char *(*toString) (void *);
 };
 
 
@@ -29,14 +31,14 @@ struct node {
  */
 void printNode(struct node *n)
 {
-    char *tmp = NULL;
-    if (n)
-	tmp = n->toString(n->data);
-    if (tmp)
-	printf(tmp);
-    else
-	printf("Ack! we are in trouble\n");
-    free(tmp);
+	char *tmp = NULL;
+	if (n)
+		tmp = n->toString(n->data);
+	if (tmp)
+		printf(tmp);
+	else
+		printf("Ack! we are in trouble\n");
+	free(tmp);
 
 }
 
@@ -50,30 +52,32 @@ void printNode(struct node *n)
  */
 struct node *createNode(void *data)
 {
-    struct node *tmp = malloc(sizeof(struct node));
-    tmp->data = data;
-    tmp->next = NULL;
-    return tmp;
+	struct node *tmp = malloc(sizeof(struct node));
+	tmp->data = data;
+	tmp->next = NULL;
+	return tmp;
 }
 
 int main(int foo, char *bar[])
 {
-    //Create a node to represent the "head" of the list
-    struct node *head;		// = createNode(-1);
-    //Pointer to use for moving through the list
-    struct node *curr = head;
-    //for loop using C99 syntax
-    for (int i = 0; i < 10; i++) {
-	//(*curr).next = createNode(i);
-	curr->next = NULL;	// createNode(i);
-	//go to the next node in the list;
-	curr = curr->next;
-    }
-    //Reset curr so we can go through the list
-    curr = head;
-    while (curr) {
-	printNode(curr);
-	curr = curr->next;
-    }
-    return 0;
+	//Create a node to represent the "head" of the list
+	struct node *head;		// = createNode(-1);
+	//Pointer to use for moving through the list
+	struct node *curr = head;
+	//for loop using C99 syntax
+	for (int i = 0; i < 10; i++)
+	{
+		//(*curr).next = createNode(i);
+		curr->next = NULL;	// createNode(i);
+		//go to the next node in the list;
+		curr = curr->next;
+	}
+	//Reset curr so we can go through the list
+	curr = head;
+	while (curr)
+	{
+		printNode(curr);
+		curr = curr->next;
+	}
+	return 0;
 }

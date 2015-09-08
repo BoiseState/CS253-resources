@@ -31,8 +31,8 @@ int main(int argc, char* argv[])
 	pa = a;
 	pa--;
 	for(i = 0; i < 10; i++)
-                printf("%d ", pa[i]);
-        printf("\n");
+		printf("%d ", pa[i]);
+	printf("\n");
 
 	return 0;
 }

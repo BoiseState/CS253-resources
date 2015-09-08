@@ -9,7 +9,7 @@
 
 
 int main(int argc, char **argv)
-{	
+{
 	int i;
 	int n;
 	NodePtr node;
@@ -17,13 +17,15 @@ int main(int argc, char **argv)
 	ListPtr list;
 	char *saveFile;
 
-	if (argc < 2) {
+	if (argc < 2)
+	{
 		fprintf(stderr, "Usage: %s <list size> [<checkpoint file>] \n",argv[0]);
 		exit(1);
 	}
 	n = atoi(argv[1]);
 	saveFile = NULL;
-	if (argc == 3) {
+	if (argc == 3)
+	{
 		saveFile = argv[2];
 	}
 
@@ -38,7 +40,8 @@ int main(int argc, char **argv)
 	if (!saveFile) printList(list);
 	printList(list);
 
-	if (saveFile) {
+	if (saveFile)
+	{
 		printf("checkpointing to file %s\n", saveFile);
 		checkpointList(list, saveFile);
 	}

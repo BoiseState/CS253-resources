@@ -1,7 +1,7 @@
 #include <windows.h>
 #include <stdio.h>
 
-DWORD WINAPI PrintMessageFunction( LPVOID ptr ); 
+DWORD WINAPI PrintMessageFunction( LPVOID ptr );
 
 int  main()
 {
@@ -9,31 +9,33 @@ int  main()
 	char *szMessage2 = "World";
 	LPHANDLE hThread1, hThread2;
 	DWORD dwThreadID1, dwThreadID2;
-	
+
 	hThread1 = CreateThread(
-			NULL,							// Security Descriptor (handle not inheritable)
-			0,								// initial stack size (default)
-			PrintMessageFunction,	// thread function
-			szMessage1,					// thread argument
-			0,								// creation option (run immediately)
-			&dwThreadID1				// thread identifier
-	);
-		
-	if (! hThread1) {
+	               NULL,							// Security Descriptor (handle not inheritable)
+	               0,								// initial stack size (default)
+	               PrintMessageFunction,	// thread function
+	               szMessage1,					// thread argument
+	               0,								// creation option (run immediately)
+	               &dwThreadID1				// thread identifier
+	           );
+
+	if (! hThread1)
+	{
 		fprintf(stderr, "Unable to create thread 1.\n");
 		ExitProcess(1);
 	}
 
 	hThread2 = CreateThread(
-			NULL,							// Security Descriptor (handle not inheritable)
-			0,								// initial stack size (default)
-			PrintMessageFunction,	// thread function
-			szMessage2,					// thread argument
-			0,								// creation option (run immediately)
-			&dwThreadID2				// thread identifier
-	);
-		
-	if (! hThread2) {
+	               NULL,							// Security Descriptor (handle not inheritable)
+	               0,								// initial stack size (default)
+	               PrintMessageFunction,	// thread function
+	               szMessage2,					// thread argument
+	               0,								// creation option (run immediately)
+	               &dwThreadID2				// thread identifier
+	           );
+
+	if (! hThread2)
+	{
 		fprintf(stderr, "Unable to create thread 2.\n");
 		ExitProcess(2);
 	}

@@ -5,7 +5,7 @@
 
 	Implementation of the Node class.
 */
-		
+
 Node::Node(char *obj)
 {
 	data = obj;
@@ -28,13 +28,13 @@ string Node::toString()
 	return  *s;
 }
 
- void Node::setNext(Node *nextPtr)
+void Node::setNext(Node *nextPtr)
 {
 	next = nextPtr;
 }
 
- Node *Node::getNext()
+Node *Node::getNext()
 {
 	return next;
 }
-		
+

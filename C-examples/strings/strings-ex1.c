@@ -10,7 +10,7 @@
 
 /*char c = '\0';*/
 
-int main() 
+int main()
 {
 	char *r = "winnie";
 	char *s;
@@ -33,9 +33,9 @@ int main()
 		printf("r < s (lexicographically)\n");
 	else if (stat == 0)
 		printf("r == s (lexicographically)\n");
-	else 
+	else
 		printf("r > s (lexicographically)\n");
-	
+
 	free(s);
 	exit(0);
 }

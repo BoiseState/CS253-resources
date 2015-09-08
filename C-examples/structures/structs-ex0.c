@@ -7,14 +7,15 @@ int main(int argc, char *argv[])
 {
 	int n = 3;
 
-	struct string {
+	struct string
+	{
 		int len;
 		char *str;
 	} *p, *p2;
 
 	p = (struct string *) malloc(sizeof(struct string) * n);
 	p2 = p;
-	
+
 	int i, j;
 	char c = 'a';
 	for(i = 0; i < n; i++)
@@ -33,33 +34,33 @@ int main(int argc, char *argv[])
 		printf("[%d] len: %d, str:  %s\n", i, p[i].len, p[i].str);
 	}
 
-	printf("\np: %p, p->len: %d\n", p, p->len); 
+	printf("\np: %p, p->len: %d\n", p, p->len);
 	int newlen = ++p->len;
 	printf("(%s)\n\tp: %p, newlen: %d\n", "++p->len", p, newlen);
-	
+
 	newlen = (++p)->len;
 	printf("(%s)\n\tp: %p, newlen: %d\n", "(++p)->len", p, newlen);
-	
+
 	newlen = (p++)->len;
 	printf("(%s)\n\tp: %p, newlen: %d\n", "(p++)->len", p, newlen);
-	
+
 	newlen = p->len;
-        printf("(%s)\n\tp: %p, newlen: %d\n", "p->len", p, newlen);
+	printf("(%s)\n\tp: %p, newlen: %d\n", "p->len", p, newlen);
 
 
-	printf("\np2: %p, p2->str: %p (%s)\n", p2, p2->str, p2->str); 
+	printf("\np2: %p, p2->str: %p (%s)\n", p2, p2->str, p2->str);
 	char newstr = *p2->str;
 	printf("(%s)\n\tp2: %p, p2->str: %p (%s), newstr: %c\n", "*p2->str", p2,  p2->str, p2->str, newstr);
-	
+
 	newstr = *p2->str++;
 	printf("(%s)\n\tp2: %p, p2->str: %p (%s), newstr: %c\n", "*p2->str++", p2, p2->str, p2->str, newstr);
-	
+
 	newstr = (*p2->str)++;
 	printf("(%s)\n\tp2: %p, p2->str: %p (%s), newstr: %c\n", "(*p2->str)++", p2, p2->str, p2->str, newstr);
-	
+
 	newstr = *p2++->str;
 	printf("(%s)\n\tp2: %p, p2->str: %p (%s), newstr: %c\n", "*p2++->str", p2, p2->str, p2->str, newstr);
-	
+
 	newstr = *p2->str;
 	printf("(%s)\n\tp2: %p, p2->str: %p (%s), newstr: %c\n", "*p2->str", p2, p2->str, p2->str, newstr);
 

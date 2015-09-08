@@ -1,32 +1,42 @@
 #include <stdio.h>
 
-enum utype{
-  INT,
-  DOUBLE,
-  STRING
+enum utype
+{
+	INT,
+	DOUBLE,
+	STRING
 };
 
-struct data {
-	union udata {
-   		int ival;
-    	double dval;
-    	char *sval;
+struct data
+{
+	union udata
+	{
+		int ival;
+		double dval;
+		char *sval;
 	} data;
-    enum utype storedType;
-}; 
+	enum utype storedType;
+};
 
 
 void printData(struct data value)
 {
-	switch (value.storedType) {
-		case INT: printf("ival = %d \n", value.data.ival); break;
-		case DOUBLE: printf("fval = %f \n", value.data.dval); break;
-		case STRING : printf("sval = %s \n", value.data.sval); break;
+	switch (value.storedType)
+	{
+	case INT:
+		printf("ival = %d \n", value.data.ival);
+		break;
+	case DOUBLE:
+		printf("fval = %f \n", value.data.dval);
+		break;
+	case STRING :
+		printf("sval = %s \n", value.data.sval);
+		break;
 	}
 }
 
 
-int main(int argc, char **argv) 
+int main(int argc, char **argv)
 {
 
 	struct data myCloset;

@@ -15,9 +15,11 @@ int main(int argc, char **argv)
 
 
 	X = (int ***) malloc(n * sizeof(int **));
-	for (i=0; i<n; i++) {
+	for (i=0; i<n; i++)
+	{
 		X[i] = (int **) malloc(n * sizeof(int *));
-		for(j = 0; j <n; j++) {
+		for(j = 0; j <n; j++)
+		{
 			X[i][j] = (int *) malloc(n *sizeof(int));
 		}
 	}
@@ -31,8 +33,10 @@ int main(int argc, char **argv)
 
 
 	// delete the 2-dimensional array X
-	for (i=0; i<n; i++) {
-		for(j=0;j<n;j++) {
+	for (i=0; i<n; i++)
+	{
+		for(j=0; j<n; j++)
+		{
 			free(X[i][j]);
 		}
 		free(X[i]);

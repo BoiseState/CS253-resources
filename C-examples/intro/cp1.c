@@ -13,7 +13,8 @@ int main(int argc, char *argv[])
 	int c;  // why is this int and not char?
 
 	c = getchar();
-	while (c != EOF ) {
+	while (c != EOF )
+	{
 		putchar(c);
 		c = getchar();
 	}

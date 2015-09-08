@@ -4,8 +4,8 @@
  * Constructor
  */
 struct list *createList(int (*equals)(const void *, const void *),
-		char *(*toString)(const void *),
-		void (*freeObject)(const void *))
+                        char *(*toString)(const void *),
+                        void (*freeObject)(const void *))
 {
 	struct list *list = (struct list *) malloc(sizeof(struct list));
 	list->size = 0;
@@ -45,9 +45,12 @@ void addAtFront(struct list *list, struct node* node)
 	if(list == NULL) return;
 	if(node == NULL) return;
 
-	if(list->head == NULL) {           // case 1. list is currently empty.
+	if(list->head == NULL)             // case 1. list is currently empty.
+	{
 		list->head = node;
-	} else {                           // case 2. it's not empty.
+	}
+	else                               // case 2. it's not empty.
+	{
 		node->next = list->head;
 		list->head = node;
 	}
@@ -85,7 +88,8 @@ struct node* searchList(struct list* list, void *object)
 	while(node != NULL)
 	{
 		// check for equality.
-		if((*list->equals)(node->object,object)) {
+		if((*list->equals)(node->object,object))
+		{
 			return node;
 		}
 		node = node->next;

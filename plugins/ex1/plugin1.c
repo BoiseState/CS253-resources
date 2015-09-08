@@ -13,5 +13,5 @@
 
 void plugin(void)
 {
-  printf("This is plug-in 1\n");
+	printf("This is plug-in 1\n");
 }

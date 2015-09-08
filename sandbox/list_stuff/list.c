@@ -1,7 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-struct node {
+struct node
+{
 	struct node *next;
 	int data;
 };
@@ -40,7 +41,8 @@ int main (int foo, char *bar[])
 	//Pointer to use for moving through the list
 	struct node *curr = head;
 	//for loop using C99 syntax
-	for(int i =0;i<10;i++){
+	for(int i =0; i<10; i++)
+	{
 		//(*curr).next = createNode(i);
 		curr->next = createNode(i);
 		//go to the next node in the list;
@@ -48,7 +50,8 @@ int main (int foo, char *bar[])
 	}
 	//Reset curr so we can go through the list
 	curr = head;
-	while(curr){
+	while(curr)
+	{
 		printNode(curr);
 		curr = curr->next;
 	}

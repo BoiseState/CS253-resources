@@ -6,7 +6,7 @@
 static int getLength(Address this)
 {
 	return strlen(this->name)+strlen(this->streetAddress)+
-				strlen(this->city)+strlen(this->state)+4+5+10;
+	       strlen(this->city)+strlen(this->state)+4+5+10;
 }
 
 Address createAddress(char *name, char *streetAddress, char *city,
@@ -34,7 +34,7 @@ char *printMultiLine(Address this)
 	int len = getLength(this);
 	char * temp = (char *) malloc(sizeof(char)*len);
 	snprintf(temp, len, "%s\n%s\n%s, %s, %d\n", this->name,
-				this->streetAddress, this->city, this->state, this->zip);
+	         this->streetAddress, this->city, this->state, this->zip);
 	return temp;
 }
 
@@ -43,7 +43,7 @@ char *printOneLine(Address this)
 	int len = getLength(this);
 	char * temp = (char *) malloc(sizeof(char)*len);
 	snprintf(temp, len, "%s, %s, %s, %s %d\n", this->name,
-				this->streetAddress, this->city, this->state, this->zip);
+	         this->streetAddress, this->city, this->state, this->zip);
 	return temp;
 }
 

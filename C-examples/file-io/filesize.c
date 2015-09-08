@@ -10,13 +10,15 @@ int main(int argc, char **argv)
 	long int size;
 	FILE *fin;
 
-	if (argc !=2 ) {
+	if (argc !=2 )
+	{
 		fprintf(stderr, "Usage: %s <filename>\n", argv[0]);
 		exit(1);
 	}
 
 	fin = fopen(argv[1], "r");
-	if (!fin) {
+	if (!fin)
+	{
 		perror("filesize:");
 		exit(-1);
 	}

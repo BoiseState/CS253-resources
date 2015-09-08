@@ -9,7 +9,8 @@ int main(int argc, char *argv[])
 	long nc;
 
 	nc = 0;
-	while (getchar() != EOF ) {
+	while (getchar() != EOF )
+	{
 		nc++;
 	}
 	printf("%ld\n", nc);
@@ -19,7 +20,7 @@ int main(int argc, char *argv[])
 
 /* An alternate way of writing the above */
 /*
- int main() 
+ int main()
  {
  	double nc;
 

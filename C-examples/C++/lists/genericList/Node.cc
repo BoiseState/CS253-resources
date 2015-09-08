@@ -5,7 +5,7 @@
 
 	Implementation of the Node class.
 */
-		
+
 template<class T> Node<T>::Node(T *obj)
 {
 	data = obj;
@@ -36,4 +36,4 @@ template<class T> Node<T> *Node<T>::getNext()
 {
 	return next;
 }
-		
+

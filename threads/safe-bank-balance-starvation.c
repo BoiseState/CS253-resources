@@ -63,22 +63,27 @@ int main(int argc, char **argv)
 	int i;
 	int *value;
 
-	if (argc < 3) {
+	if (argc < 3)
+	{
 		fprintf(stderr, "Usage: %s <numThreads (1-3)> <good|bad>\n", argv[0]);
 		exit(1);
 	}
 
 	numThreads = atoi(argv[1]);
-	if (numThreads > 3) {
+	if (numThreads > 3)
+	{
 		fprintf(stderr, "Usage: %s Too many threads  specified. Defaulting to 3.\n", argv[0]);
 		numThreads = 3;
 	}
 
 	char *goodArg = argv[2];
-	if(strcmp(goodArg, "good") == 0) {
+	if(strcmp(goodArg, "good") == 0)
+	{
 		good = 1;
 		printf("Running good version...\n");
-	} else {
+	}
+	else
+	{
 		good = 0;
 		printf("Running bad version...\n");
 	}
@@ -89,14 +94,16 @@ int main(int argc, char **argv)
 
 	/* Create threads */
 	tids = (pthread_t *) malloc(sizeof(pthread_t)*numThreads);
-	for (i=0; i<numThreads; i++) {
+	for (i=0; i<numThreads; i++)
+	{
 		value = (int *) malloc(sizeof(int));
 		*value = i;
 		pthread_create(&tids[i], NULL, run, (void *) value);
 	}
 
 	/* Wait for all threads to finish */
-	for (i=0; i<numThreads; i++) {
+	for (i=0; i<numThreads; i++)
+	{
 		pthread_join(tids[i], NULL);
 	}
 
@@ -124,15 +131,19 @@ void *run(void *ptr)
 	/* Thread will read from file input_x.txt */
 	sprintf(filename, "transactions_%d.txt", id);
 	fp = fopen(filename, "r");
-	if(fp == NULL) {
+	if(fp == NULL)
+	{
 		fprintf(stderr, "Can't open input file %s\n", filename);
 		exit(1);
 	}
 
 	printf("Thread [%d]: Session started\n", id);
-	if(good == 1) {
+	if(good == 1)
+	{
 		goodSession(id, fp);
-	} else {
+	}
+	else
+	{
 		badSession(id, fp);
 	}
 	printf("Thread [%d]: Session ended\n", id);
@@ -149,12 +160,15 @@ void badSession(int id, FILE *fp)
 
 	/* This is not a good place to lock! */
 	pthread_mutex_lock(&(myacct->mutex));
-	while(fscanf(fp, "%lf", &amount) != EOF) {
-		if(amount < 1) {
+	while(fscanf(fp, "%lf", &amount) != EOF)
+	{
+		if(amount < 1)
+		{
 			sleep(30); // Simulates user walking away from machine.
 		}
 		deposit(myacct, amount); // Uses shared myacct variable.
-		printf("\tThread [%d]: Deposited: %f\n", id, amount); fflush(stdout);
+		printf("\tThread [%d]: Deposited: %f\n", id, amount);
+		fflush(stdout);
 	}
 	pthread_mutex_unlock(&(myacct->mutex));
 }
@@ -167,15 +181,18 @@ void goodSession(int id, FILE *fp)
 {
 	double amount;
 
-	while(fscanf(fp, "%lf", &amount) != EOF) {
-		if(amount < 1) {
+	while(fscanf(fp, "%lf", &amount) != EOF)
+	{
+		if(amount < 1)
+		{
 			sleep(30); // Simulates user walking away from machine.
 		}
 		/* lock around smallest chunk of code possible. */
 		pthread_mutex_lock(&(myacct->mutex));
 		deposit(myacct, amount); // Uses shared myacct variable.
 		pthread_mutex_unlock(&(myacct->mutex));
-		printf("\tThread [%d]: Deposited: %f\n", id, amount); fflush(stdout);
+		printf("\tThread [%d]: Deposited: %f\n", id, amount);
+		fflush(stdout);
 	}
 }
 

@@ -7,13 +7,13 @@
 
 int main(int argc, char *argv[])
 {
-    double dSmall = 2, dBig = 100;
-    int iSmall = 2, iBig = 100;
-    char cSmall = 'a', cBig = 'z';
+	double dSmall = 2, dBig = 100;
+	int iSmall = 2, iBig = 100;
+	char cSmall = 'a', cBig = 'z';
 
-    printf("max(%.2f,%.2f) = %.2f\n", dSmall, dBig, max(dSmall, dBig));
-    printf("max(%d,%d) = %d\n", iSmall, iBig, max(iSmall, iBig));
-    printf("max(%c,%c) = %c\n", cSmall, cBig, max(cSmall, cBig));
+	printf("max(%.2f,%.2f) = %.2f\n", dSmall, dBig, max(dSmall, dBig));
+	printf("max(%d,%d) = %d\n", iSmall, iBig, max(iSmall, iBig));
+	printf("max(%c,%c) = %c\n", cSmall, cBig, max(cSmall, cBig));
 
-    return 0;
+	return 0;
 }

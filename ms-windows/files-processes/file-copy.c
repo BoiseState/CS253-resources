@@ -20,41 +20,45 @@ int main(int argc, char *argv[])
 	DWORD numOfBytesWritten;
 
 
-	if (argc != 4) {
+	if (argc != 4)
+	{
 		fprintf(stderr, "Usage: %s <buffer size> <src> <dest>\n", argv[0]);
 		ExitProcess(1);
 	}
-	
+
 	bufsize = atoi(argv[1]);
-	if (bufsize > BUF_SIZE) {
+	if (bufsize > BUF_SIZE)
+	{
 		fprintf(stderr,"Error: %s: max. buffer size is %d\n",argv[0], BUF_SIZE);
 		ExitProcess(1);
-	}	
+	}
 
 	sourceFile = CreateFile (
-		argv[2],
-		GENERIC_READ,
-		dwShareMode,
-		lpSecurityAttributes,
-		OPEN_ALWAYS,
-		FILE_ATTRIBUTE_READONLY,
-		hTemplateFile
-		);
-	if (sourceFile == INVALID_HANDLE_VALUE) {
+	                 argv[2],
+	                 GENERIC_READ,
+	                 dwShareMode,
+	                 lpSecurityAttributes,
+	                 OPEN_ALWAYS,
+	                 FILE_ATTRIBUTE_READONLY,
+	                 hTemplateFile
+	             );
+	if (sourceFile == INVALID_HANDLE_VALUE)
+	{
 		fprintf(stderr, "File open operation failed on file: %s\n", argv[2]);
 		ExitProcess(1);
 	}
 
 	destinationFile = CreateFile (
-		argv[3],
-		GENERIC_WRITE,
-		dwShareMode,
-		lpSecurityAttributes,
-		CREATE_ALWAYS,
-		FILE_ATTRIBUTE_NORMAL,
-		hTemplateFile
-		);
-	if (destinationFile == INVALID_HANDLE_VALUE) {
+	                      argv[3],
+	                      GENERIC_WRITE,
+	                      dwShareMode,
+	                      lpSecurityAttributes,
+	                      CREATE_ALWAYS,
+	                      FILE_ATTRIBUTE_NORMAL,
+	                      hTemplateFile
+	                  );
+	if (destinationFile == INVALID_HANDLE_VALUE)
+	{
 		fprintf(stderr, "File create operation failed on file: %s\n", argv[3]);
 		ExitProcess(1);
 	}

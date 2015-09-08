@@ -3,8 +3,8 @@
 #include "List.h"
 
 struct list * createList(int (*equals)(const void *,const void *),
-			 char * (*toString)(const void *),
-			 void (*freeObject)(void *))
+                         char * (*toString)(const void *),
+                         void (*freeObject)(void *))
 {
 	struct list *list;
 	list = (struct list *) malloc(sizeof(struct list));
@@ -38,10 +38,13 @@ void addAtFront(struct list *list, struct node *node)
 	list->size++;
 	node->next = list->head;
 	node->prev = NULL;
-	if (list->head == NULL) {
+	if (list->head == NULL)
+	{
 		list->head = node;
 		list->tail = node;
-	} else {
+	}
+	else
+	{
 		list->head->prev = node;
 		list->head = node;
 	}
@@ -81,7 +84,8 @@ void printList(const struct list *list)
 	int count = 0;
 	char *output;
 	struct node *temp = list->head;
-	while (temp) {
+	while (temp)
+	{
 		output = list->toString(temp->obj);
 		printf(" %s -->",output);
 		free(output);

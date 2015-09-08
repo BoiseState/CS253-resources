@@ -17,13 +17,13 @@ int main()
 	float x = 0;
 	double y = 2E300;
 
-    printf("Before m = n;\n int m: %d\n long n: %ld\n", m, n);
+	printf("Before m = n;\n int m: %d\n long n: %ld\n", m, n);
 	m = n;
 	printf("After m = n;\n int m: %d\n long n: %ld\n", m, n);
 
 	printf("\n");
 
-    printf("Before x = y;\n float x: %e\n double y: %le\n", x, y);
+	printf("Before x = y;\n float x: %e\n double y: %le\n", x, y);
 	x = y;
 	printf("After x = y;\n float x: %e\n double y: %le\n", x, y);
 

@@ -28,6 +28,6 @@ int main(void)
 void pr_stdio(const char *name, FILE *fp)
 {
 	printf("stream = %s, ", name);
-				/* following is nonportable to non Linux systems */
+	/* following is nonportable to non Linux systems */
 	printf(", buffer size = %ld\n", fp->_IO_buf_end - fp->_IO_buf_base);
 }

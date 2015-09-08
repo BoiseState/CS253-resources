@@ -18,23 +18,25 @@
 int main(int argc, char *argv[])
 {
 	char c;
-   	long nc, nw, nl;	
+	long nc, nw, nl;
 	int state;
 
 	state = OUT;
 	nl = nw = nc = 0;
-	while ((c = getchar()) != EOF ) {
+	while ((c = getchar()) != EOF )
+	{
 #ifdef DEBUG
 		printf("c=%c\n",c);
 #endif
 #if DEBUG==1
-               printf("level 1");
+		printf("level 1");
 #endif
 		nc++;
 #ifdef DEBUG
 		printf("nc=%ld\n",nc);
 #endif
-		if (c == '\n') {
+		if (c == '\n')
+		{
 			nl++;
 #ifdef DEBUG
 			printf("nl=%ld\n",nl);
@@ -42,11 +44,12 @@ int main(int argc, char *argv[])
 		}
 		if (c == ' ' || c == '\n' || c == '\t')
 			state = OUT;
-		else if (state == OUT) {
-				state = IN;
-				nw++;
+		else if (state == OUT)
+		{
+			state = IN;
+			nw++;
 #ifdef DEBUG
-				printf("nw=%ld\n",nw);
+			printf("nw=%ld\n",nw);
 #endif
 		}
 	}

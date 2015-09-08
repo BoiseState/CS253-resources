@@ -18,7 +18,7 @@ using namespace std;
 
 class Primes
 {
-	public:
+public:
 
 	/**
 		Check if input parameter is prime or not.
@@ -27,7 +27,7 @@ class Primes
 	*/
 	static bool isPrime(long n)
 	{
-	    // take care of simple cases first
+		// take care of simple cases first
 		if ((n == 1) || (n ==2))
 			return true;
 
@@ -54,7 +54,7 @@ class Primes
 		Faster prime factorization method.
 	*/
 	static string primeFactorization(long n)
-	{	
+	{
 		// simple cases
 		if (n == 1) return "1";
 		if (isPrime(n)) return Utility::itos(n) + "";
@@ -62,13 +62,13 @@ class Primes
 		string result = "";
 		long sqrtn = (long) ceil(sqrt((double)n));
 		long number = n;
-		
+
 		// see how many times 2 divides into n
 		while (number % 2 == 0)
 		{
 			result = result + Utility::itos(2);
 			number = number/2;
-			if (number != 1) 
+			if (number != 1)
 				result = result + " * ";
 		}
 
@@ -83,20 +83,20 @@ class Primes
 					/*cout << result << endl;;*/
 					result = result + Utility::itos(i);
 					number = number/i;
-					if (number != 1) 
+					if (number != 1)
 						result = result + " * ";
 				}
 			}
 			if (number == 1) break;
 			if (isPrime(number)) break;
 		}
-		if (number > 1) 
+		if (number > 1)
 			result = result + Utility::itos(number);
 		return result;
 	}
 
 
-};	
+};
 
 
 int main (int argc, char * argv[])

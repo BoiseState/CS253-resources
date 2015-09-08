@@ -23,7 +23,7 @@ int main()
 			++nwhite;
 		}
 		else
-        	{
+		{
 			++nother;
 		}
 	}

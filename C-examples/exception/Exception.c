@@ -64,7 +64,7 @@ void *push_env()
  * pop_env() */
 void *pop_env()
 {
-	if (env_index == 0) 
+	if (env_index == 0)
 		fatal("Exception: pop_env(): stack underflow");
 	return (void *)env_stack[--env_index];
 }/*pop_env()*/
@@ -75,7 +75,7 @@ int main(int argc, char **args)
 {
 	Exception *e1=NewException();
 	Exception *e2=NewException();
-	
+
 	try(e1)
 	{
 		try(e2)

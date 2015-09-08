@@ -2,10 +2,10 @@
 
 void message1()
 {
-     printf("What's up doc?");
+	printf("What's up doc?");
 }
 
 void message2()
 {
-     printf("\n");
+	printf("\n");
 }

@@ -27,7 +27,7 @@ int getDataSize(NodePtr node)
 
 /*
 Function name: checkpointNode
-Description: WARNING! Writes a checkpoint for a Node structure to  an output 
+Description: WARNING! Writes a checkpoint for a Node structure to  an output
 			stream without any checks. The idea is that some higher level
 			class (like List) would call this function after having
 			checked for the file output stream to be set properly. We also
@@ -50,9 +50,9 @@ void checkpointNode(NodePtr node, FILE *fout)
 /*
 Function name: restoreNode
 Description: WARNING! Reads from a binary input stream to rsrtore a Node
- 			structure. The idea is that some higher level class (like List) 
-			would call this function after having checked for the file input 
-			stream to be set properly. We don't check for EOF or other errors 
+ 			structure. The idea is that some higher level class (like List)
+			would call this function after having checked for the file input
+			stream to be set properly. We don't check for EOF or other errors
 			at this level.
 
 	Input: fin ---> binary input stream

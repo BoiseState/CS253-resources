@@ -13,5 +13,5 @@ int main(int argc, char *argv[])
 	cout << "size of float = " << sizeof(float)*BITS <<  " bits. " << endl;
 	cout << "size of double = " << sizeof(double)*BITS <<  " bits. " << endl;
 	cout << "size of long long = " << sizeof(long long)*BITS <<  " bits."
-	<< endl;
+	     << endl;
 }

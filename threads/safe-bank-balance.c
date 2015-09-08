@@ -15,7 +15,8 @@
 
 
 typedef struct account account;
-struct account {
+struct account
+{
 	double balance;
 	pthread_mutex_t mutex;
 };
@@ -30,14 +31,16 @@ int main(int argc, char **argv)
 {
 	int i;
 
-	if (argc < 2) {
+	if (argc < 2)
+	{
 		fprintf(stderr, "Usage: %s <numThreads> <iterations>\n", argv[0]);
 		exit(1);
 	}
 
 	numThreads  = atoi(argv[1]);
 	count = atoi(argv[2]);
-	if (numThreads > 32) {
+	if (numThreads > 32)
+	{
 		fprintf(stderr, "Usage: %s Too many threads  specified. Defaulting to 32.\n", argv[0]);
 		numThreads = 32;
 	}
@@ -48,15 +51,15 @@ int main(int argc, char **argv)
 	printf("initial balance = %lf\n", myacct->balance);
 
 
-    tids = (pthread_t *) malloc(sizeof(pthread_t)*numThreads);
-    for (i=0; i<numThreads; i++)
-        pthread_create(&tids[i], NULL, threadMain, (void *) NULL);
+	tids = (pthread_t *) malloc(sizeof(pthread_t)*numThreads);
+	for (i=0; i<numThreads; i++)
+		pthread_create(&tids[i], NULL, threadMain, (void *) NULL);
 
-    for (i=0; i<numThreads; i++)
-        pthread_join(tids[i], NULL);
+	for (i=0; i<numThreads; i++)
+		pthread_join(tids[i], NULL);
 
 	printf("final balance = %lf\n", myacct->balance);
-    exit(0);
+	exit(0);
 }
 
 void *threadMain(void *arg)
@@ -64,7 +67,8 @@ void *threadMain(void *arg)
 	int i;
 	int amount;
 
-	for (i=0; i<count; i++) {
+	for (i=0; i<count; i++)
+	{
 		amount = 1;
 		pthread_mutex_lock(&(myacct->mutex));
 		myacct->balance += amount;

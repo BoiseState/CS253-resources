@@ -22,7 +22,7 @@ int main(void)
 	if (getc(fp) == EOF)
 		err_sys("getc error");
 	pr_stdio("junk", fp);
-	
+
 	ExitProcess(0);
 }
 

@@ -43,7 +43,7 @@ int main (int argc, char **argv)
 	double z;
 	int x;
 
-    if (argc != 3)
+	if (argc != 3)
 	{
 		fprintf(stderr,"Usage: %s <int> <double> \n",argv[0]);
 		exit(1); //exit and return unsuccessful status to the shell
